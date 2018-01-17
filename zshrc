@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 #===================================================
 
 # User configuration
-export PATH="/Users/dmitriy/bin:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/dkg/bin"
 
 # JAVA ====================================================
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -35,3 +35,26 @@ export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 
 #==========================================================
+
+# Node ====================================================
+# export NVM_DIR="$HOME/.nvm"
+# nvm use 4.7.0
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[  -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# =========================================================
+
+
+# Python ====================================================
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+# =========================================================
+
+
+
+# PLUGINS =================================================
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# =========================================================
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
