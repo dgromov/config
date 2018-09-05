@@ -3,8 +3,8 @@
     excludesfile = ~/.gitignore
     preloadindex = true
 [user]
-    email = dgromov@dataminr.com
-    name = Dmitriy Gromov
+	email = dmitriy.k.gromov@gmail.com
+	name = Dmitriy Gromov
 [github]
     user = dgromov
 [color]
@@ -60,3 +60,8 @@
 [diff]
     tool = delta
     compactionHeuristic = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
