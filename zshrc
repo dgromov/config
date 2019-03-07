@@ -37,10 +37,13 @@ export PATH=$GOBIN:$PATH
 #==========================================================
 
 # Node ====================================================
-# export NVM_DIR="$HOME/.nvm"
-# nvm use 4.7.0
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[  -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+function activate_node {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm use 8.9.4
+    nvm alias default 8.9.4
+}
+# [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # =========================================================
 
 
@@ -58,3 +61,14 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # =========================================================
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function update_hosts() {
+   aws ec2 describe-instances | jq '.Reservations[].Instances[0].Tags[] | select (.Key != null and .Key == "Name") | .Value' | sort | sed 's/"//g' > ~/hosts.json
+}
+
+function hosts() {
+   HOSTS=$(cat ~/hosts.json)
+   complete -W "$HOSTS" ssh
+}
+
+source $HOME/.rd/rd.conf

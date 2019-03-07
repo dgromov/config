@@ -2,6 +2,7 @@ call pathogen#infect()
 
 set background=dark " Dark term bg (but bg=dark is gross)
 colorscheme ir_black
+" colorscheme murphy
 syntax on
 
 set backspace=indent,eol,start " Allow backspacing over everything
@@ -13,7 +14,6 @@ set nocompatible       " Don't use Vi settings!
 set noerrorbells       " No annoying beeping
 set nojoinspaces       " Don't put extra spaces on joining sentences.
 set nostartofline      " Don't move to start of line on buffer next
-
 set display=lastline  " Display as much of the last line as possible, not @
 set hlsearch          " Hilight /search results!
 set incsearch         " do incremental searching
@@ -43,6 +43,7 @@ set smarttab      " Smart tabbing!
 set shiftround    " < and > will hit indent levels instead of +-4 always
 
 au filetype python setl expandtab shiftwidth=4 softtabstop=4
+au filetype yaml setl expandtab shiftwidth=2 softtabstop=2
 
 set history=100 " keep 100 lines of command line history
 set nobackup    " Don't back up stuff. (makes nasty files~)
